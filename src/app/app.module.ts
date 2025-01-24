@@ -128,15 +128,5 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [
-    ShareDialogComponent,
-    AdvancedDialogComponent,
-    TutorialDialogComponent,
-    ScenarioPreviewDialogComponent,
-    ModelParamsDialogComponent,
-    ModelParamsEditorDialogComponent,
-    RunSimulationDialogComponent,
-    ScenarioImportDialogComponent
-  ]
 })
 export class AppModule { }
