@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AppConfigService } from '../../shared/services/app-config.service';
 import { Observable } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';  // Corrected import path
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { FileValidator } from 'ngx-material-file-input';
 import { Papa } from 'ngx-papaparse';
 import { ScenariosService } from '../../shared/services/scenarios.service';
@@ -27,12 +27,12 @@ export function scenarioImportFileTypeValidator(type): ValidatorFn {
 })
 export class ScenarioImportDialogComponent implements OnInit {
   readOnly$: Observable<boolean>;
-  importForm: FormGroup;
+  importForm: UntypedFormGroup;
 
   constructor(
     private dialogRef: MatDialogRef<ScenarioImportDialogComponent>,
     private appConfig: AppConfigService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private papa: Papa,
     private scenariosService: ScenariosService,
     private router: Router,

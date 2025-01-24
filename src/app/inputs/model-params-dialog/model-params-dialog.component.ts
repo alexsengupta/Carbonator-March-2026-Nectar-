@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';  // Update import path for Angular 9
 
 @Component({
@@ -9,11 +9,11 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';  // Up
 })
 export class ModelParamsDialogComponent implements OnInit {
   constants;
-  constantsForm: FormGroup;
+  constantsForm: UntypedFormGroup;
 
   constructor(
     private dialogRef: MatDialogRef<ModelParamsDialogComponent>,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     @Inject(MAT_DIALOG_DATA) private data
   ) { }
 
