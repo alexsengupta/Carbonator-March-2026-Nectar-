@@ -1,8 +1,12 @@
 .Home {
   padding: 25px;
 
-  &__intro {
 
+
+  &__intro {
+    .mat-mdc-card {
+      padding: 16px;
+    }
   }
 
   &__content {

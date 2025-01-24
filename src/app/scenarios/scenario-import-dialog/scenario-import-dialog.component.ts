@@ -1,12 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { AppConfigService } from '../../shared/services/app-config.service';
-import { Observable } from 'rxjs';
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';  // Corrected import path
-import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { FileValidator } from 'ngx-material-file-input';
-import { Papa } from 'ngx-papaparse';
-import { ScenariosService } from '../../shared/services/scenarios.service';
-import { Router } from '@angular/router';
+import {Component, Inject, OnInit} from '@angular/core';
+import {AppConfigService} from '../../shared/services/app-config.service';
+import {Observable} from 'rxjs';
+import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {Papa} from 'ngx-papaparse';
+import {ScenariosService} from '../../shared/services/scenarios.service';
+import {Router} from '@angular/router';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 // Validator to check file type
 export function scenarioImportFileTypeValidator(type): ValidatorFn {

@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import {Component, OnInit} from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-run-simulation-dialog',
-  templateUrl: './run-simulation-dialog.component.html',
-  styleUrls: ['./run-simulation-dialog.component.css']
+    selector: 'app-run-simulation-dialog',
+    templateUrl: './run-simulation-dialog.component.html',
+    styleUrls: ['./run-simulation-dialog.component.css']
 })
 export class RunSimulationDialogComponent implements OnInit {
 
-  constructor(
-    private dialogRef: MatDialogRef<RunSimulationDialogComponent>
-  ) { }
+    constructor(
+        private dialogRef: MatDialogRef<RunSimulationDialogComponent>
+    ) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  close() {
-    this.dialogRef.close();
-  }
+    close() {
+        this.dialogRef.close();
+    }
 
 }

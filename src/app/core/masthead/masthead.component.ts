@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';  // Update the import path
 import { ShareDialogComponent } from '../../pages/share-dialog/share-dialog.component';
 import { TutorialDialogComponent } from '../../pages/tutorial-dialog/tutorial-dialog.component';
 import { AdvancedDialogComponent } from '../../pages/advanced-dialog/advanced-dialog.component';
 import { AppConfigService } from '../../shared/services/app-config.service';
 import { Observable } from 'rxjs';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-masthead',

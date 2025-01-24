@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Simulation } from '../model/simulation.model';
-import { ScenariosService } from './scenarios.service';
-import { DATA_FORCINGS } from '../data/forcings.data';
-import { Scenario } from '../model/scenario.model';
-import { BehaviorSubject } from 'rxjs/index';
-import { Papa } from 'ngx-papaparse';
-import { FileSaverService } from 'ngx-filesaver';
+import {Injectable} from '@angular/core';
+import {Simulation} from '../model/simulation.model';
+import {ScenariosService} from './scenarios.service';
+import {DATA_FORCINGS} from '../data/forcings.data';
+import {BehaviorSubject} from 'rxjs';
+import {Papa} from 'ngx-papaparse';
+import {FileSaverService} from 'ngx-filesaver';
 
 @Injectable({
   providedIn: 'root'

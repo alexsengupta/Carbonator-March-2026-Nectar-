@@ -1,9 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';  // Update import path
-import { ModelParamsDialogComponent } from '../model-params-dialog/model-params-dialog.component';
-import { Observable } from 'rxjs';  // Update rxjs import
-import { AppConfigService } from '../../shared/services/app-config.service';
-import { ModelParamsEditorDialogComponent } from '../model-params-editor-dialog/model-params-editor-dialog.component';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ModelParamsDialogComponent} from '../model-params-dialog/model-params-dialog.component';
+import {AppConfigService} from '../../shared/services/app-config.service';
+import {ModelParamsEditorDialogComponent} from '../model-params-editor-dialog/model-params-editor-dialog.component';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-model-params',
