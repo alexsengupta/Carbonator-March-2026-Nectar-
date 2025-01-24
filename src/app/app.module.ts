@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -62,6 +61,7 @@ import { ScenarioImportDialogComponent } from './scenarios/scenario-import-dialo
 import { PapaParseModule } from 'ngx-papaparse';
 import { FileSaverModule } from 'ngx-filesaver';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
