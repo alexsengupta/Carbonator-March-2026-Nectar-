@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';  // Correct import for Angular 9
+import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';  // Correct import for Angular 9
 
 @Component({
   selector: 'app-tutorial-dialog',

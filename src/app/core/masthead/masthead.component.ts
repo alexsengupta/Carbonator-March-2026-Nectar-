@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';  // Update the import path
+import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';  // Update the import path
 import { ShareDialogComponent } from '../../pages/share-dialog/share-dialog.component';
 import { TutorialDialogComponent } from '../../pages/tutorial-dialog/tutorial-dialog.component';
 import { AdvancedDialogComponent } from '../../pages/advanced-dialog/advanced-dialog.component';

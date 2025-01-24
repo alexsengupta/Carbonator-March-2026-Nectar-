@@ -3,7 +3,7 @@ import { AppConfigService } from '../../shared/services/app-config.service';
 import { ScenariosService } from '../../shared/services/scenarios.service';
 import { Scenario } from '../../shared/model/scenario.model';
 import { Observable } from 'rxjs';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { ScenarioImportDialogComponent } from '../scenario-import-dialog/scenario-import-dialog.component';
 
 @Component({

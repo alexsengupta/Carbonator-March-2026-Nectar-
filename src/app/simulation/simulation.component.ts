@@ -3,7 +3,7 @@ import { AppConfigService } from '../shared/services/app-config.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Simulation } from '../shared/model/simulation.model';
 import { SimulationsService } from '../shared/services/simulations.service';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { AdvancedDialogComponent } from '../pages/advanced-dialog/advanced-dialog.component';
 import { RunSimulationDialogComponent } from './run-simulation-dialog/run-simulation-dialog.component';
 import { Observable, Subscription } from 'rxjs/index';

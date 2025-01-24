@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';  // Update import path for Angular 9
+import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';  // Update import path for Angular 9
 import { AppConfigService } from '../../shared/services/app-config.service';
 import { Observable } from 'rxjs';
 
