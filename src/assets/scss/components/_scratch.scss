@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 app-root {
   height: 100%;
 }
@@ -54,7 +55,7 @@ app-root {
 .Masthead {
 
   &.mat-toolbar {
-    background-color: mat-color($carbonator-app-primary, darker);
+    background-color: mat.get-color-from-palette($carbonator-app-primary, darker);
     color: $color-white;
     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
   }
@@ -83,14 +84,14 @@ app-root {
     display: inline-block;
     line-height: 36px;
     height: 36px;
-    border-color: mat-color($carbonator-app-primary, lighter);
+    border-color: mat.get-color-from-palette($carbonator-app-primary, lighter);
   }
 }
 
 .Mandatories {
 
   &.mat-toolbar {
-    background-color: mat-color($carbonator-app-primary, lighter);
+    background-color: mat.get-color-from-palette($carbonator-app-primary, lighter);
     color: $color-night;
     box-shadow: none;
   }
@@ -157,7 +158,7 @@ app-root {
     &.mat-expanded {
 
       &, &:focus, &:hover {
-        background-color: mat-color($carbonator-app-primary, darker);
+        background-color: mat.get-color-from-palette($carbonator-app-primary, darker);
         color: $color-white;
       }
 
@@ -169,7 +170,7 @@ app-root {
   }
 
   .mat-expansion-panel-body {
-    background-color: mat-color($carbonator-app-primary, lighter);
+    background-color: mat.get-color-from-palette($carbonator-app-primary, lighter);
     padding: 24px;
 
     > *:first-child {
@@ -198,7 +199,7 @@ app-root {
     padding-top: 0;
 
     .mat-nav-list {
-      background-color: mat-color($carbonator-app-primary);
+      background-color: mat.get-color-from-palette($carbonator-app-primary);
       box-shadow:
         inset 0px 11px 8px -10px rgba(0,0,0,.3),
         inset 0px -11px 8px -10px rgba(0,0,0,.3);
