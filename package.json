@@ -26,7 +26,7 @@
     "core-js": "^2.5.4",
     "file-saver": "^2.0.5",
     "hammerjs": "^2.0.8",
-    "highcharts": "^6.1.0",
+    "highcharts": "^9.0.0",
     "highcharts-draggable-points": "^2.0.9",
     "ngx-material-file-input": "^4.0.1",
     "ngx-papaparse": "^8.0.0",
