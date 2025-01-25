@@ -97,6 +97,10 @@ app-root {
     border-color: mat.m2-get-color-from-palette($carbonator-app-primary, lighter);
     background-color: mat.m2-get-color-from-palette($carbonator-app-primary, lighter);
   }
+
+  .mat-accent {
+    color: mat.m2-get-color-from-palette($carbonator-app-primary, lighter);
+  }
 }
 
 .Mandatories {
