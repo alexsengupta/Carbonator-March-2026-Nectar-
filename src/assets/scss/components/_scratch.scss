@@ -223,8 +223,10 @@ app-root {
     line-height: 16px;
     height: 42px !important;
     padding: 0;
+    border-radius: 0 !important;
 
     .mdc-list-item__content {
+      border-radius: 0;
       padding: {
         left: 0 !important;
         right: 0 !important;
@@ -237,6 +239,8 @@ app-root {
         width: 100%;
         height: 100%;
         display: block;
+        border-radius: 0;
+        font-size: 12px;
 
         &.active {
           background-color: rgba($color-black, 0.4)

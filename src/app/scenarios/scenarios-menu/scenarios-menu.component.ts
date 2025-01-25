@@ -28,7 +28,6 @@ export class ScenariosMenuComponent implements OnInit {
   }
 
   importScenario() {
-    console.log('click')
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.autoFocus = true;
