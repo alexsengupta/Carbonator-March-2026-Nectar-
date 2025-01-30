@@ -2,11 +2,8 @@ import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angu
 import { DATA_FORCINGS } from '../../shared/data/forcings.data';
 
 import * as Highcharts from 'highcharts/highcharts';
-import * as HC_draggablePoints from 'highcharts-draggable-points';
 import { AppConfigService } from '../../shared/services/app-config.service';
 import { Observable } from 'rxjs/index';
-
-HC_draggablePoints(Highcharts);
 
 @Component({
   selector: 'app-tsi-forcing',
