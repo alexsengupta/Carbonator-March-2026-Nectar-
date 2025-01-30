@@ -49,7 +49,6 @@ import {VolcanicsForcingComponent} from './inputs/volcanics-forcing/volcanics-fo
 import {SchoolsComponent} from './pages/schools/schools.component';
 import {TutorialComponent} from './pages/tutorial/tutorial.component';
 import {ScenarioImportDialogComponent} from './scenarios/scenario-import-dialog/scenario-import-dialog.component';
-import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -120,8 +119,7 @@ import {RouterModule} from '@angular/router';
         MatInputModule,
         MatTooltipModule,
         MatProgressBarModule,
-        RouterModule,
-        MaterialFileInputModule
+        RouterModule
     ],
     providers: [provideHttpClient(withInterceptorsFromDi())]
 })

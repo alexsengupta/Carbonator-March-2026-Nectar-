@@ -8,12 +8,13 @@ import {Router} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 // Validator to check file type
-export function scenarioImportFileTypeValidator(type): ValidatorFn {
+export function scenarioImportFileTypeValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
-    if (control.value !== null && typeof control.value.files !== 'undefined' && typeof control.value.files[0] !== 'undefined') {
-      return (control.value.files[0].type === type)
+    const file = control.value;
+    if (file instanceof File) {
+      return file.type === 'text/csv' || file.name.toLowerCase().endsWith('.csv')
         ? null
-        : { 'fileType': { value: control.value.files[0].type } };
+        : { 'fileType': { value: file.type } };
     }
     return null;
   };
@@ -27,6 +28,7 @@ export function scenarioImportFileTypeValidator(type): ValidatorFn {
 export class ScenarioImportDialogComponent implements OnInit {
   readOnly$: Observable<boolean>;
   importForm: UntypedFormGroup;
+  selectedFile: File | null = null;
 
   constructor(
     private dialogRef: MatDialogRef<ScenarioImportDialogComponent>,
@@ -44,19 +46,32 @@ export class ScenarioImportDialogComponent implements OnInit {
     // Initialize the form group with validation
     this.importForm = this.formBuilder.group({
       requiredfile: [
-        undefined,
+        null,
         [
           Validators.required,
-          scenarioImportFileTypeValidator('text/csv')  // Custom file type validator
+          scenarioImportFileTypeValidator()
         ]
       ]
     });
   }
 
+  getFileName(): string {
+    return this.selectedFile ? this.selectedFile.name : '';
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.selectedFile = file;
+      this.importForm.get('requiredfile').setValue(file);
+    }
+  }
+
   // On form submit, parse the file
   onSubmitImportForm() {
     if (this.importForm.invalid) return;  // Exit if form is invalid
-    this.parse(this.importForm.value.requiredfile.files[0]);
+    this.parse(this.importForm.value.requiredfile);
   }
 
   // Parse the CSV file
