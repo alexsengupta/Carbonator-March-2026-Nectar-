@@ -10,16 +10,6 @@ import {FlexLayoutModule} from '@ngbracket/ngx-layout';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [
-    MatSidenav,
-    ScenariosMenuComponent,
-    MatSidenavContent,
-    RouterOutlet,
-    MandatoriesComponent,
-    MatSidenavContainer,
-    MastheadComponent,
-    FlexLayoutModule
-  ],
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

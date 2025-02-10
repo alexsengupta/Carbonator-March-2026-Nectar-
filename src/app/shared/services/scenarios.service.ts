@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Scenario } from '../model/scenario.model';
-import { DATA_SCENARIOS } from '../data/scenarios.data';
-import { BehaviorSubject } from 'rxjs/index';
-import { map } from 'rxjs/internal/operators';
-import { ForcingConfig } from '../model/forcing.config';
-import { DATA_CONSTANTS } from '../data/constants.data';
+import {Injectable} from '@angular/core';
+import {Scenario} from '../model/scenario.model';
+import {DATA_SCENARIOS} from '../data/scenarios.data';
+import {DATA_CONSTANTS} from '../data/constants.data';
+import {BehaviorSubject, map, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +27,7 @@ export class ScenariosService {
     return this._scenarios.asObservable();
   }
 
-  get presets() {
+  get presets(): Observable<Scenario[]> {
 
     return this.scenarios
       .pipe(

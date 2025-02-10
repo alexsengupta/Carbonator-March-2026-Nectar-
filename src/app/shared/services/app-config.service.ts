@@ -1,20 +1,21 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/index';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AppConfigService {
-  readOnly: BehaviorSubject<boolean> = new BehaviorSubject(true);
-  readOnly$ = this.readOnly.asObservable();
+    readOnly: BehaviorSubject<boolean> = new BehaviorSubject(true);
+    readOnly$ = this.readOnly.asObservable();
 
-  constructor( ) {}
+    constructor() {
+    }
 
-  updateReadOnly(value: boolean) {
-    this.readOnly.next(value);
-  }
+    updateReadOnly(value: boolean) {
+        this.readOnly.next(value);
+    }
 
-  toggleReadOnly() {
-    this.updateReadOnly(!(this.readOnly.getValue()));
-  }
+    toggleReadOnly() {
+        this.updateReadOnly(!(this.readOnly.getValue()));
+    }
 }

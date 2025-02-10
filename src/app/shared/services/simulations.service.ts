@@ -4,6 +4,7 @@ import {ScenariosService} from './scenarios.service';
 import {DATA_FORCINGS} from '../data/forcings.data';
 import {BehaviorSubject} from 'rxjs';
 import {Papa} from 'ngx-papaparse';
+import {FileSaverService} from 'ngx-filesaver';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class SimulationsService {
 
   constructor(
     private scenariosService: ScenariosService,
-    private papa: Papa
+    private papa: Papa,
+    private fileSaverService: FileSaverService
   ) {
     this.simulations = [];
   }
@@ -171,17 +173,9 @@ export class SimulationsService {
     }
 
     const fileName = 'carbonator_scenario.csv';
-    const fileType = 'text/csv';
-    const csvContent = 'data:text/csv;charset=utf-8,' + encodeURI(this.papa.unparse(output));
-    const blob = new Blob([csvContent], { type: fileType });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const fileType = this.fileSaverService.genType('csv');
+    const txtBlob = new Blob([this.papa.unparse(output)], { type: fileType });
+    this.fileSaverService.save(txtBlob, fileName);
   }
 
   exportOutputsToCSV(simulation: Simulation) {
@@ -220,17 +214,9 @@ export class SimulationsService {
     }
 
     const fileName = 'carbonator_outputs.csv';
-    const fileType = 'text/csv';
-    const csvContent = 'data:text/csv;charset=utf-8,' + encodeURI(this.papa.unparse(output));
-    const blob = new Blob([csvContent], { type: fileType });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const fileType = this.fileSaverService.genType('csv');
+    const txtBlob = new Blob([this.papa.unparse(output)], { type: fileType });
+    this.fileSaverService.save(txtBlob, fileName);
   }
 
   run(simulation: Simulation) {

@@ -71,6 +71,10 @@ app-root {
       font-size: 14px;
       font-weight: 500;
     }
+
+    a.mat-accent {
+        color: mat.m2-get-color-from-palette($carbonator-app-accent, lighter) !important;
+    }
   }
 
   &__menuToggle {
