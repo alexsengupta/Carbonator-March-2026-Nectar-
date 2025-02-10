@@ -60,7 +60,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {FlexLayoutModule} from '@ngbracket/ngx-layout';
 import {RouterModule} from '@angular/router';
-import {HighchartsChartModule} from 'highcharts-angular';
 
 @NgModule({
     declarations: [
@@ -121,7 +120,6 @@ import {HighchartsChartModule} from 'highcharts-angular';
         MatTooltipModule,
         MatProgressBarModule,
         RouterModule,
-        HighchartsChartModule
     ],
     providers: [provideHttpClient(withInterceptorsFromDi()),]
 })

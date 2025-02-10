@@ -2,10 +2,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DATA_FORCINGS} from '../../shared/data/forcings.data';
 
 import * as Highcharts from 'highcharts/highcharts';
+import * as HC_draggablePoints from 'highcharts-draggable-points';
 import {AppConfigService} from '../../shared/services/app-config.service';
 import {Observable} from 'rxjs/index';
-import 'highcharts/modules/draggable-points';
 
+HC_draggablePoints(Highcharts);
 
 @Component({
     selector: 'app-tsi-forcing',
@@ -20,26 +21,19 @@ export class TSIForcingComponent implements OnInit {
     chartConstructor = 'chart';
     chartOptions = {
         series: [],
-        credits: {enabled: false},
+        credits: { enabled: false },
         yAxis: {
-            title: {text: ''},
-            labels: {formatter: undefined},
+            title: { text: '' },
+            labels: { formatter: undefined },
             plotLines: [],
             softMin: undefined,
             softMax: undefined,
             minRange: undefined
         },
-        plotOptions: {
-            series: {
-                dragDrop: {
-                    draggableY: true,
-                },
-            }
-        },
         xAxis: {},
-        legend: {enabled: false},
-        title: {text: ''},
-        tooltip: {pointFormat: '<span style="color:{point.color}">\u25CF</span> <b>{point.y}</b><br/>'}
+        legend: { enabled: false },
+        title: { text: '' },
+        tooltip: { pointFormat: '<span style="color:{point.color}">\u25CF</span> <b>{point.y}</b><br/>' }
     };
 
     @Input() simulation;
@@ -57,8 +51,7 @@ export class TSIForcingComponent implements OnInit {
 
     constructor(
         private appConfig: AppConfigService
-    ) {
-    }
+    ) { }
 
     ngOnInit() {
         this.readOnly$ = this.appConfig.readOnly;
@@ -98,7 +91,6 @@ export class TSIForcingComponent implements OnInit {
     }
 
     doUpdateNodeValue(event) {
-        console.log('doUpdateNodeValue', event);
         this.config.data = {
             x: event.target.series.xAxis.categories,
             y: event.target.series.yData
@@ -114,6 +106,7 @@ export class TSIForcingComponent implements OnInit {
         this.modify.emit({key: this.key, forcing: null});
         this.updateChart();
     }
+
 
 
     get isEnabled() {
@@ -136,6 +129,7 @@ export class TSIForcingComponent implements OnInit {
     get isReadOnly() {
         return this.appConfig.readOnly.getValue();
     }
+
 
 
     get canUpdateIsEnabled() {
@@ -161,11 +155,11 @@ export class TSIForcingComponent implements OnInit {
     }
 
 
+
     updateChart() {
         this.refreshData();
 
         if (this.canUpdateNodeValue) {
-            console.log('this._waveData', this._waveData);
             this.chartOptions.series = [
                 {
                     data: this._waveData.y,
@@ -228,7 +222,7 @@ export class TSIForcingComponent implements OnInit {
         }
 
         const xMin = 0.5;
-        const xMax = (this._data.x.length - 1.5);
+        const xMax = (this._data.x.length -1.5);
 
         this.chartOptions.xAxis = [
             {
@@ -247,14 +241,12 @@ export class TSIForcingComponent implements OnInit {
     }
 
     private refreshData() {
-        console.log('refreshData');
+
         this.config = this.simulation.forcingConfig(this.key);
 
         let years = this.config.years;
         let values = this.config.values;
         let nodesCount = this.config.nodesCount;
-
-        console.log('years', this.config);
 
         const scenarioYearStart = this.simulation.scenario.range.start;
         const scenarioYearEnd = this.simulation.scenario.range.end;
@@ -292,18 +284,11 @@ export class TSIForcingComponent implements OnInit {
             };
         }
 
-        console.log('this._data', this._data);
-        let tsiYearNodes = [];
-        if (this._data.x) {
-            tsiYearNodes = JSON.parse(JSON.stringify(this._data.x));
-        }
-        let tsiValues = [];
-        if (this._data.y) {
-            tsiValues = JSON.parse(JSON.stringify(this._data.y));
-        }
+        let tsiYearNodes = JSON.parse(JSON.stringify(this._data.x));
+        let tsiValues = JSON.parse(JSON.stringify(this._data.y));
 
-        const waveCycle = [];
-        const waveValues = [];
+        let waveCycle = [];
+        let waveValues = [];
 
         if (totalYearsInclusive !== tsiYearNodes.length) {
             const yearAnnualNodes = this.simulation.generateYears(scenarioYearStart, scenarioYearEnd, 1);
@@ -314,7 +299,7 @@ export class TSIForcingComponent implements OnInit {
         }
 
         tsiYearNodes.forEach(
-            function (year) {
+            function(year) {
                 const value = 0.3 * Math.sin(2 * 3.14 * year / 11);
                 waveCycle.push(value);
             }
@@ -322,7 +307,7 @@ export class TSIForcingComponent implements OnInit {
 
         let i = 0;
         tsiValues.forEach(
-            function (tsiValue) {
+            function(tsiValue) {
                 waveValues[i] = tsiValue + waveCycle[i];
                 i++;
             }
