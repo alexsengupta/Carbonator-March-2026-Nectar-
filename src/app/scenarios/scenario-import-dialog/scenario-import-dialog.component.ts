@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {AppConfigService} from '../../shared/services/app-config.service';
 import {Observable} from 'rxjs';
 import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidatorFn, Validators} from '@angular/forms';
-import {Papa} from 'ngx-papaparse';
+import * as Papa from 'papaparse';
 import {ScenariosService} from '../../shared/services/scenarios.service';
 import {Router} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
@@ -34,7 +34,6 @@ export class ScenarioImportDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<ScenarioImportDialogComponent>,
     private appConfig: AppConfigService,
     private formBuilder: UntypedFormBuilder,
-    private papa: Papa,
     private scenariosService: ScenariosService,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) private data
@@ -82,7 +81,7 @@ export class ScenarioImportDialogComponent implements OnInit {
       const csv = reader.result;
 
       if (typeof csv === 'string') {
-        this.papa.parse(csv, {
+        Papa.parse(csv, {
           complete: (results, file) => {
             const importResult = this.scenariosService.importCSV(results.data);
 

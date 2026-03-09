@@ -3,7 +3,7 @@ import {Simulation} from '../model/simulation.model';
 import {ScenariosService} from './scenarios.service';
 import {DATA_FORCINGS} from '../data/forcings.data';
 import {BehaviorSubject} from 'rxjs';
-import {Papa} from 'ngx-papaparse';
+import * as Papa from 'papaparse';
 import {FileSaverService} from 'ngx-filesaver';
 
 @Injectable({
@@ -16,7 +16,6 @@ export class SimulationsService {
 
   constructor(
     private scenariosService: ScenariosService,
-    private papa: Papa,
     private fileSaverService: FileSaverService
   ) {
     this.simulations = [];
@@ -174,7 +173,7 @@ export class SimulationsService {
 
     const fileName = 'carbonator_scenario.csv';
     const fileType = this.fileSaverService.genType('csv');
-    const txtBlob = new Blob([this.papa.unparse(output)], { type: fileType });
+    const txtBlob = new Blob([Papa.unparse(output)], { type: fileType });
     this.fileSaverService.save(txtBlob, fileName);
   }
 
@@ -215,7 +214,7 @@ export class SimulationsService {
 
     const fileName = 'carbonator_outputs.csv';
     const fileType = this.fileSaverService.genType('csv');
-    const txtBlob = new Blob([this.papa.unparse(output)], { type: fileType });
+    const txtBlob = new Blob([Papa.unparse(output)], { type: fileType });
     this.fileSaverService.save(txtBlob, fileName);
   }
 

@@ -2,10 +2,18 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "papaparse": [
+        "node_modules/papaparse/papaparse.js"
+      ],
+      "stream": [
+        "node_modules/stream-browserify"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "target": "ES2022",
     "allowJs": true,

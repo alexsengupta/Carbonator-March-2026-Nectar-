@@ -3,7 +3,7 @@ import { DATA_FORCINGS } from '../../shared/data/forcings.data';
 
 import * as Highcharts from 'highcharts/highcharts';
 import { AppConfigService } from '../../shared/services/app-config.service';
-import { Observable } from 'rxjs/index';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-volcanics-forcing',

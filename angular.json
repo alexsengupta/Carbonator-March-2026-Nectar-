@@ -13,6 +13,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "papaparse",
+              "highcharts",
+              "highcharts-draggable-points",
+              "file-saver",
+              "stream-browserify"
+            ],
             "outputPath": "dist/visualmetrics-carbonator",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -24,15 +31,7 @@
             ],
             "styles": [
               "src/assets/scss/app.scss"
-            ],
-            "scripts": [],
-            "aot": false,
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            ]
           },
           "configurations": {
             "production": {
@@ -48,11 +47,9 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "vendorChunk": false
             }
-          },
-          "defaultConfiguration": ""
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -84,7 +81,6 @@
               },
               "src/styles.css"
             ],
-            "scripts": [],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -106,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
